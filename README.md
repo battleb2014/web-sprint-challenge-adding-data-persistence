@@ -41,20 +41,20 @@ Add `"start"`. `"server"`, `"migrate"` and `"rollback"` scripts to the `package.
 
 Build the migration(s) in Knex inside the `data/migrations` folder using appropriate data types and constraints. **You must use the table names and the column names described below.** To give a primary key a name different than `id`, do `table.increments("project_id")` instead of `table.increments()`.
 
-- [ ] A **project** is what needs to be done and is stored in a `projects` table with the following columns:
+- [x] A **project** is what needs to be done and is stored in a `projects` table with the following columns:
 
   - [x] `project_id` - primary key
   - [x] `project_name` - required
   - [x] `project_description` - optional
   - [x] `project_completed` - the database defaults it to `false` (integer 0) if not provided
 
-- [ ] A **resource** is anything needed to complete a project and is stored in a `resources` table with the following columns:
+- [x] A **resource** is anything needed to complete a project and is stored in a `resources` table with the following columns:
 
   - [x] `resource_id` - primary key
   - [x] `resource_name` - required and unique
   - [x] `resource_description` - optional
 
-- [ ] A **task** is one of the steps needed to complete a project and is stored in a `tasks` table with the following columns:
+- [x] A **task** is one of the steps needed to complete a project and is stored in a `tasks` table with the following columns:
 
   - [x] `task_id` - primary key
   - [x] `task_description` - required
@@ -62,7 +62,7 @@ Build the migration(s) in Knex inside the `data/migrations` folder using appropr
   - [x] `task_completed` - the database defaults it to `false` (integer 0) if not provided
   - [x] `project_id` - required and points to an actual `project_id` in the `projects` table
 
-- [ ] A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
+- [x] A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
 
 ### Required Endpoints
 
@@ -115,6 +115,13 @@ Build an API inside the `api` folder with endpoints for:
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+   -SQL is a relational database
+
 2. Why do tables need a Primary Key?
+   -The primary key identifies content native to that specific table
+
 3. What is the name given to a table column that references the Primary Key on another table?
+   -Foreign key
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+   -A third table is needed for 2 tables who have a many-to-many relationship
